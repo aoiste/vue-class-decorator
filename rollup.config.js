@@ -1,17 +1,21 @@
+import typescript from 'rollup-plugin-typescript';
+
 export default {
-  input: 'lib/vue-property-decorator.js',
-  name: 'VuePropertyDecorator',
+  input: './src/vue-property-decorator.ts',
   output: {
     file: 'lib/vue-property-decorator.umd.js',
-    format: 'umd'
+    format: 'umd',
+    name: 'vue-property-decorator',
+    exports: 'named',
+    globals: {
+      'vue': 'Vue',
+      'vue-class-component': 'VueClassComponent'
+    }
   },
+  plugins: [
+    typescript({ lib: ["es5", "es6", "dom"], target: "es5", experimentalDecorators: true, declaration: true, declarationDir: "lib" })
+  ],
   external: [
     'vue', 'vue-class-component', 'reflect-metadata'
-  ],
-  exports: 'named',
-  name: 'vue-property-decorator',
-  globals: {
-    'vue': 'Vue',
-    'vue-class-component': 'VueClassComponent'
-  }
+  ]
 }
