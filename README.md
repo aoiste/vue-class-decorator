@@ -1,4 +1,4 @@
-# Vue Property Decorator
+# Vue Class Decorator
 
 [![npm](https://img.shields.io/npm/v/vue-class-decorator.svg)](https://www.npmjs.com/package/vue-class-decorator)
 [![Build Status](https://travis-ci.org/kaorun343/vue-class-decorator.svg?branch=master)](https://travis-ci.org/kaorun343/vue-class-decorator)
@@ -139,8 +139,19 @@ export default class YourComponent extends Vue {
   @Filter('date')
   DateFilter(val: string) { }
 
-  @Filter
+  @Filter()
   date2(val: string) { }
+}
+```
+
+is equivalent to
+
+```js
+export default {
+  filter: {
+    date(val) {},
+    date2(val) {}
+  }
 }
 ```
 
@@ -152,10 +163,10 @@ import { Vue, Component, On } from 'vue-class-decorator'
 @Component
 export default class YourComponent extends Vue {
   @On('change')
-  Handler(e) { }
+  Handler(e) { console.log("handler1", e) }
 
-  @On
-  Input(e) { }
+  @On()
+  Input(e) { console.log("handler2", e) }
 }
 ```
 
@@ -163,21 +174,9 @@ is equivalent to
 
 ```js
 export default {
-  watch: {
-    'child': {
-      handler: 'onChildChanged',
-      immediate: false,
-      deep: false
-    },
-    'person': {
-      handler: 'onPersonChanged',
-      immediate: true,
-      deep: true
-    }
-  },
-  methods: {
-    onChildChanged(val, oldVal) { },
-    onPersonChanged(val, oldVal) { }
+  mounted() {
+    this.$on("change", e => { console.log("handler1", e) })
+    this.$on("input", e => { console.log("handler2", e) })
   }
 }
 ```
