@@ -132,7 +132,7 @@ export default {
 }
 ```
 
-### `@Filter(name: string)` decorator
+### `@Filter(name?: string)` decorator
 
 ```ts
 import { Vue, Component, Filter } from 'vue-class-decorator'
@@ -158,7 +158,7 @@ export default {
 }
 ```
 
-### `@On(name: string)` decorator
+### `@On(name?: string)` decorator
 
 ```ts
 import { Vue, Component, On } from 'vue-class-decorator'
