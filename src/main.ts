@@ -14,3 +14,4 @@ export * from "./prop";
 export * from "./provide";
 export * from "./watch";
 export * from "./filter";
+export * from "./on";

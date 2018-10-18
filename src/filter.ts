@@ -7,5 +7,6 @@ export function Filter(name: string): VueDecorator {
         }
         let methods: any = componentOptions.methods;
         (componentOptions.filters as any)[name || handler] = methods[handler];
+        delete methods[handler];
     });
 }
