@@ -19,12 +19,14 @@ npm i -S vue-class-decorator
 
 There are 7 decorators and 1 function (Mixin):
 
-* `@Emit`
-* `@Inject`
-* `@Model`
-* `@Prop`
-* `@Provide`
-* `@Watch`
+* `@Emit` (**from** `vue-property-decorator`)
+* `@Inject` (**from** `vue-property-decorator`)
+* `@Model` (**from** `vue-property-decorator`)
+* `@Prop` (**from** `vue-property-decorator`)
+* `@Provide` (**from** `vue-property-decorator`)
+* `@Watch` (**from** `vue-property-decorator`)
+* `@Filter`
+* `@On`
 * `@Component` (**from** `vue-class-component`)
 * `Mixins` (the helper function named `mixins` defined at `vue-class-component`)
 
