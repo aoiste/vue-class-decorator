@@ -1,6 +1,6 @@
 {
   "name": "vue-class-decorator",
-  "version": "7.3.0",
+  "version": "7.3.1",
   "description": "property decorators for Vue Component",
   "main": "lib/main.js",
   "module": "lib/main.js",
@@ -9,7 +9,7 @@
     "typescript",
     "decorator"
   ],
-  "author": "kaorun343",
+  "author": "ztytotoro",
   "license": "MIT",
   "scripts": {
     "build": "tsc"
@@ -30,10 +30,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kaorun343/vue-property-decorator.git"
+    "url": "git+https://github.com/ztytotoro/vue-class-decorator.git"
   },
   "bugs": {
-    "url": "https://github.com/kaorun343/vue-property-decorator/issues"
+    "url": "https://github.com/ztytotoro/vue-class-decorator/issues"
   },
-  "homepage": "https://github.com/kaorun343/vue-property-decorator#readme"
+  "homepage": "https://github.com/ztytotoro/vue-class-decorator#readme"
 }

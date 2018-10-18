@@ -1,9 +1,10 @@
 # Vue Class Decorator
 
 [![npm](https://img.shields.io/npm/v/vue-class-decorator.svg)](https://www.npmjs.com/package/vue-class-decorator)
-[![Build Status](https://travis-ci.org/kaorun343/vue-class-decorator.svg?branch=master)](https://travis-ci.org/kaorun343/vue-class-decorator)
 
-This library fully depends on [vue-class-component](https://github.com/vuejs/vue-class-component), so please read its README before using this library.
+This library is modified base on [vue-property-decorator](https://github.com/kaorun343/vue-property-decorator)
+
+& Fully depends on [vue-class-component](https://github.com/vuejs/vue-class-component), so please read its README before using this library.
 
 ## License
 
