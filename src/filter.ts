@@ -5,6 +5,7 @@ export function Filter(name: string): VueDecorator {
         if (typeof componentOptions.filters !== "object") {
             componentOptions.filters = Object.create(null);
         }
-        (componentOptions.filters as any)[name || handler] = handler;
+        let methods: any = componentOptions.methods;
+        (componentOptions.filters as any)[name || handler] = methods[handler];
     });
 }
