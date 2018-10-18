@@ -4,7 +4,7 @@ import { createDecorator, VueDecorator } from "vue-class-component";
 const hyphenateRE: RegExp = /\B([A-Z])/g;
 const hyphenate: (str: string) => string = (str: string) => str.replace(hyphenateRE, "-$1").toLowerCase();
 
-export function On(event: string): VueDecorator {
+export function On(event?: string): VueDecorator {
     return createDecorator((componentOptions, key) => {
         let mounted: Function | undefined = componentOptions.mounted;
         let methods: any = componentOptions.methods;
