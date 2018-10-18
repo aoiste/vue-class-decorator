@@ -26,10 +26,12 @@ There are 7 decorators and 1 function (Mixin):
 * `@Prop` (**from** `vue-property-decorator`)
 * `@Provide` (**from** `vue-property-decorator`)
 * `@Watch` (**from** `vue-property-decorator`)
-* `@Filter`
-* `@On`
 * `@Component` (**from** `vue-class-component`)
 * `Mixins` (the helper function named `mixins` defined at `vue-class-component`)
+* `@Filter`
+* `@On`
+* `@Cache`
+* `@NoCache`
 
 ### `@Prop(options: (PropOptions | Constructor[] | Constructor) = {})` decorator
 
@@ -128,58 +130,6 @@ export default {
   methods: {
     onChildChanged(val, oldVal) { },
     onPersonChanged(val, oldVal) { }
-  }
-}
-```
-
-### `@Filter(name?: string)` decorator
-
-```ts
-import { Vue, Component, Filter } from 'vue-class-decorator'
-
-@Component
-export default class YourComponent extends Vue {
-  @Filter('date')
-  DateFilter(val: string) { }
-
-  @Filter()
-  date2(val: string) { }
-}
-```
-
-is equivalent to
-
-```js
-export default {
-  filter: {
-    date(val) {},
-    date2(val) {}
-  }
-}
-```
-
-### `@On(event?: string)` decorator
-
-```ts
-import { Vue, Component, On } from 'vue-class-decorator'
-
-@Component
-export default class YourComponent extends Vue {
-  @On('change')
-  Handler(e) { console.log("handler1", e) }
-
-  @On()
-  Input(e) { console.log("handler2", e) }
-}
-```
-
-is equivalent to
-
-```js
-export default {
-  mounted() {
-    this.$on("change", e => { console.log("handler1", e) })
-    this.$on("input", e => { console.log("handler2", e) })
   }
 }
 ```
@@ -305,6 +255,69 @@ export const MyComponent = Vue.extend({
     }
   }
 })
+```
+
+### `@Filter(name?: string)` decorator
+
+```ts
+import { Vue, Component, Filter } from 'vue-class-decorator'
+
+@Component
+export default class YourComponent extends Vue {
+  @Filter('date')
+  DateFilter(val: string) { }
+
+  @Filter()
+  date2(val: string) { }
+}
+```
+
+is equivalent to
+
+```js
+export default {
+  filter: {
+    date(val) {},
+    date2(val) {}
+  }
+}
+```
+
+### `@Cache(cache: boolean)` decorator
+
+```ts
+import { Vue, Component, Cache } from 'vue-class-decorator'
+
+@Component
+export default class YourComponent extends Vue {
+  @Cache()
+  get random () {
+    return Math.random()
+  }
+
+  // the computed property will not be cached
+  @Cache(false)
+  get random2 () {
+    return Math.random()
+  }
+}
+```
+
+### `@NoCache` decorator
+
+This is the alias for `@Cache(false)`
+
+```ts
+import { Vue, Component, NoCache } from 'vue-class-decorator'
+
+@Component
+export default class YourComponent extends Vue {
+  // the computed property will not be cached
+  @NoCache
+  get random () {
+    return Math.random()
+  }
+}
 ```
 
 ## See also
