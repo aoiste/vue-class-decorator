@@ -158,7 +158,7 @@ export default {
 }
 ```
 
-### `@On(name?: string)` decorator
+### `@On(event?: string)` decorator
 
 ```ts
 import { Vue, Component, On } from 'vue-class-decorator'
