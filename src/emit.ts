@@ -1,4 +1,3 @@
-import Vue from "vue";
 // code copied from Vue/src/shared/util.js
 const hyphenateRE: RegExp = /\B([A-Z])/g;
 const hyphenate: (str: string) => string = (str: string) => str.replace(hyphenateRE, "-$1").toLowerCase();

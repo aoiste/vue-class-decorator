@@ -137,10 +137,25 @@ import { Vue, Component, Filter } from 'vue-class-decorator'
 @Component
 export default class YourComponent extends Vue {
   @Filter('date')
-  onChildChanged(val: string, oldVal: string) { }
+  DateFilter(val: string) { }
 
   @Filter
-  onPersonChanged(val: Person, oldVal: Person) { }
+  date2(val: string) { }
+}
+```
+
+### `@On(name: string)` decorator
+
+```ts
+import { Vue, Component, On } from 'vue-class-decorator'
+
+@Component
+export default class YourComponent extends Vue {
+  @On('change')
+  Handler(e) { }
+
+  @On
+  Input(e) { }
 }
 ```
 
