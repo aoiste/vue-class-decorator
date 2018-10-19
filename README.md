@@ -386,7 +386,7 @@ export default {
 }
 ```
 
-### `@Mounted()` decorator
+### `@Mounted(order?: number)` decorator
 
 ```ts
 import { Vue, Component, Mounted } from 'vue-class-decorator'
@@ -394,7 +394,19 @@ import { Vue, Component, Mounted } from 'vue-class-decorator'
 @Component
 export default class YourComponent extends Vue {
   @Mounted()
-  Method() { 
+  Method1() { 
+  }
+
+  @Mounted(2)
+  Method2() { 
+  }
+
+  @Mounted(1)
+  Method3() { 
+  }
+
+  @Mounted()
+  Method4() { 
   }
 }
 ```
@@ -404,11 +416,20 @@ is equivalent to
 ```js
 export default {
   methods: {
-    Method() { 
+    Method1() { 
+    }
+    Method2() { 
+    }
+    Method3() { 
+    }
+    Method4() { 
     }
   },
   mounted() {
-    this.Method();
+    this.Method3();
+    this.Method2();
+    this.Method1();
+    this.Method4();
     //...
   }
 }
@@ -422,7 +443,19 @@ import { Vue, Component, Created } from 'vue-class-decorator'
 @Component
 export default class YourComponent extends Vue {
   @Created()
-  Method() { 
+  Method1() { 
+  }
+
+  @Created(2)
+  Method2() { 
+  }
+
+  @Created(1)
+  Method3() { 
+  }
+
+  @Created()
+  Method4() { 
   }
 }
 ```
@@ -432,11 +465,20 @@ is equivalent to
 ```js
 export default {
   methods: {
-    Method() { 
+    Method1() { 
+    }
+    Method2() { 
+    }
+    Method3() { 
+    }
+    Method4() { 
     }
   },
   created() {
-    this.Method();
+    this.Method3();
+    this.Method2();
+    this.Method1();
+    this.Method4();
     //...
   }
 }

@@ -4,7 +4,6 @@ export function Provide(key?: string | symbol): VueDecorator {
     return createDecorator((componentOptions, k) => {
         let provide: any = componentOptions.provide;
         if (typeof provide !== "function" || !provide.managed) {
-            provide.managed = {};
             const original: any = componentOptions.provide;
 
             provide = componentOptions.provide = function (this: any): any {
@@ -15,6 +14,8 @@ export function Provide(key?: string | symbol): VueDecorator {
                 }
                 return rv;
             };
+
+            provide.managed = {};
         }
         provide.managed[k] = key || k;
     });
