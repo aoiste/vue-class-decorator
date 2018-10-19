@@ -10,16 +10,16 @@ export function Mounted(order?: number): VueDecorator {
             const methods: any = componentOptions.methods;
 
             mounted = componentOptions.mounted = function(this: any): void {
-                original.todos
+                mounted.todos
                 .filter((x: KeyPair) => x[1])
                 .sort((a: KeyPair, b: KeyPair) => a[1] - b[1])
                 .map((x: KeyPair) => methods[x[0]].call(this));
 
-                original.todos
+                mounted.todos
                 .filter((x: KeyPair) => !x[1])
                 .map((x: KeyPair) => methods[x[0]].call(this));
 
-                mounted.call(this);
+                original.call(this);
             };
 
             mounted.todos = [];

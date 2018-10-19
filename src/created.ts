@@ -10,16 +10,16 @@ export function Created(order?: number): VueDecorator {
             const methods: any = componentOptions.methods;
 
             created = componentOptions.created = function(this: any): void {
-                original.todos
+                created.todos
                 .filter((x: KeyPair) => x[1])
                 .sort((a: KeyPair, b: KeyPair) => a[1] - b[1])
                 .map((x: KeyPair) => methods[x[0]].call(this));
 
-                original.todos
+                created.todos
                 .filter((x: KeyPair) => !x[1])
                 .map((x: KeyPair) => methods[x[0]].call(this));
 
-                created.call(this);
+                original.call(this);
             };
 
             created.todos = [];
