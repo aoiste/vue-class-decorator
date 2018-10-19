@@ -30,6 +30,9 @@ There are 7 decorators and 1 function (Mixin):
 * `Mixins` (the helper function named `mixins` defined at `vue-class-component`)
 * `@Filter`
 * `@On`
+* `@Once`
+* `@Mounted`
+* `@Created`
 * `@Cache`
 * `@NoCache`
 
@@ -279,6 +282,162 @@ export default {
   filter: {
     date(val) {},
     date2(val) {}
+  }
+}
+```
+
+### `@On(event?: string, reserve: boolean = true)` decorator
+
+**NOTE: set reserve to `false` will delete method from vue instance**
+
+```ts
+import { Vue, Component, On } from 'vue-class-decorator'
+
+@Component
+export default class YourComponent extends Vue {
+  @On("change")
+  Handler(e) { 
+    //handler1
+  }
+
+  @On()
+  InputEvent(e) { 
+    //handler2
+  }
+
+  @On("resize", false)
+  Handler2(e) { 
+    //handler3
+  }
+}
+```
+
+is equivalent to
+
+```js
+export default {
+  methods: {
+    Handler(e) { 
+      //handler1
+    },
+    InputEvent(e) { 
+      //handler2
+    }
+  },
+  mounted() {
+    this.$on("change", this.Handler)
+
+    this.$on("input-event", this.InputEvent)
+
+    this.$on("resize", () => {
+      //handler3
+    })
+  }
+}
+```
+
+### `@Once(event?: string, reserve: boolean = true)` decorator
+
+**NOTE: set reserve to `false` will delete method from vue instance**
+
+```ts
+import { Vue, Component, Once } from 'vue-class-decorator'
+
+@Component
+export default class YourComponent extends Vue {
+  @Once("change")
+  Handler(e) { 
+    //handler1
+  }
+
+  @Once()
+  InputEvent(e) { 
+    //handler2
+  }
+
+  @Once("resize", false)
+  Handler2(e) { 
+    //handler3
+  }
+}
+```
+
+is equivalent to
+
+```js
+export default {
+  methods: {
+    Handler(e) { 
+      //handler1
+    },
+    InputEvent(e) { 
+      //handler2
+    }
+  },
+  mounted() {
+    this.$once("change", this.Handler)
+
+    this.$once("input-event", this.InputEvent)
+
+    this.$once("resize", () => {
+      //handler3
+    })
+  }
+}
+```
+
+### `@Mounted()` decorator
+
+```ts
+import { Vue, Component, Mounted } from 'vue-class-decorator'
+
+@Component
+export default class YourComponent extends Vue {
+  @Mounted()
+  Method() { 
+  }
+}
+```
+
+is equivalent to
+
+```js
+export default {
+  methods: {
+    Method() { 
+    }
+  },
+  mounted() {
+    this.Method();
+    //...
+  }
+}
+```
+
+### `@Created()` decorator
+
+```ts
+import { Vue, Component, Created } from 'vue-class-decorator'
+
+@Component
+export default class YourComponent extends Vue {
+  @Created()
+  Method() { 
+  }
+}
+```
+
+is equivalent to
+
+```js
+export default {
+  methods: {
+    Method() { 
+    }
+  },
+  created() {
+    this.Method();
+    //...
   }
 }
 ```
