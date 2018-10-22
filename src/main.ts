@@ -19,3 +19,4 @@ export * from "./once";
 export * from "./mounted";
 export * from "./created";
 export * from "./cache";
+export * from "./functional";

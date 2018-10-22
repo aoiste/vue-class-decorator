@@ -20,6 +20,7 @@ npm i -S vue-class-decorator
 
 There are 7 decorators and 1 function (Mixin):
 
+* `@FunctionalVue`
 * `@Filter`
 * `@On`
 * `@Once`
@@ -35,6 +36,26 @@ There are 7 decorators and 1 function (Mixin):
 * `@Watch` (**from** `vue-property-decorator`)
 * `@Component` (**from** `vue-class-component`)
 * `Mixins` (the helper function named `mixins` defined at `vue-class-component`)
+
+### `FunctionalVue` class
+
+```ts
+import { FunctionalVue, Component, Filter } from 'vue-class-decorator'
+
+@Component
+export default class YourComponent extends FunctionalVue {
+  //...
+}
+```
+
+is equivalent to
+
+```js
+export default {
+  functional: true
+  //...
+}
+```
 
 ### `@Filter(name?: string)` decorator
 
