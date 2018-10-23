@@ -183,7 +183,7 @@ export default {
 }
 ```
 
-### `@Mounted(order?: number)` decorator
+### `@Mounted(order?: number, ...args: any)` decorator
 
 ```ts
 import { Vue, Component, Mounted } from 'vue-class-decorator'
@@ -232,7 +232,7 @@ export default {
 }
 ```
 
-### `@Created()` decorator
+### `@Created(order?: number, ...args: any)` decorator
 
 ```ts
 import { Vue, Component, Created } from 'vue-class-decorator'

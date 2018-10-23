@@ -16,7 +16,6 @@ export * from "./watch";
 export * from "./filter";
 export * from "./on";
 export * from "./once";
-export * from "./mounted";
-export * from "./created";
+export * from "./hooks";
 export * from "./cache";
 export * from "./functional";
