@@ -6,7 +6,8 @@ export function Mounted(order?: number): VueDecorator {
     return createDecorator((componentOptions, key) => {
         let mounted: any = componentOptions.mounted;
         if(typeof mounted !== "function" || !mounted.todos) {
-            const original: any = componentOptions.mounted;
+            // tslint:disable-next-line:no-empty
+            const original: any = componentOptions.mounted ? componentOptions.mounted : () => {};
             const methods: any = componentOptions.methods;
 
             mounted = componentOptions.mounted = function(this: any): void {

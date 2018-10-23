@@ -6,7 +6,8 @@ export function Created(order?: number): VueDecorator {
     return createDecorator((componentOptions, key) => {
         let created: any = componentOptions.created;
         if(typeof created !== "function" || !created.todos) {
-            const original: any = componentOptions.created;
+            // tslint:disable-next-line:no-empty
+            const original: any = componentOptions.created ? componentOptions.created : () => {};
             const methods: any = componentOptions.methods;
 
             created = componentOptions.created = function(this: any): void {
