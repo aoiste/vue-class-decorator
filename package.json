@@ -1,6 +1,6 @@
 {
   "name": "vue-class-decorator",
-  "version": "7.4.11",
+  "version": "7.4.12",
   "description": "property decorators for Vue Component",
   "main": "lib/main.js",
   "module": "lib/main.js",

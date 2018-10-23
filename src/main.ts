@@ -19,3 +19,4 @@ export * from "./once";
 export * from "./hooks";
 export * from "./cache";
 export * from "./functional";
+export * from "./placeholder";
