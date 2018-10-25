@@ -1,6 +1,6 @@
 import { createDecorator, VueDecorator } from "vue-class-component";
 
-type KeyPair = [string, number];
+type KeyPair = [string, number, any[]];
 type HookDecorator = (order?: number, ...args: any) => VueDecorator;
 
 function HookFactory(stage: string): HookDecorator {
@@ -16,11 +16,11 @@ function HookFactory(stage: string): HookDecorator {
                     _stage.todos
                     .filter((x: KeyPair) => x[1])
                     .sort((a: KeyPair, b: KeyPair) => a[1] - b[1])
-                    .map((x: KeyPair) => methods[x[0]].call(this, ...args));
+                    .map((x: KeyPair) => methods[x[0]].call(this, ...x[2]));
 
                     _stage.todos
                     .filter((x: KeyPair) => !x[1])
-                    .map((x: KeyPair) => methods[x[0]].call(this, ...args));
+                    .map((x: KeyPair) => methods[x[0]].call(this, ...x[2]));
 
                     original.call(this);
                 };
@@ -28,7 +28,7 @@ function HookFactory(stage: string): HookDecorator {
                 _stage.todos = [];
             }
 
-            _stage.todos.push([key, order]);
+            _stage.todos.push([key, order, args]);
         });
     };
 }
