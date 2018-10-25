@@ -194,8 +194,8 @@ export default class YourComponent extends Vue {
   Method1() { 
   }
 
-  @Mounted(2)
-  Method2() { 
+  @Mounted(2, "test")
+  Method2(a: string) {
   }
 
   @Mounted(1)
@@ -215,7 +215,7 @@ export default {
   methods: {
     Method1() { 
     }
-    Method2() { 
+    Method2(a) { 
     }
     Method3() { 
     }
@@ -224,7 +224,7 @@ export default {
   },
   mounted() {
     this.Method3();
-    this.Method2();
+    this.Method2("test");
     this.Method1();
     this.Method4();
     //...
@@ -243,8 +243,8 @@ export default class YourComponent extends Vue {
   Method1() { 
   }
 
-  @Created(2)
-  Method2() { 
+  @Created(2, "test")
+  Method2(a: string) { 
   }
 
   @Created(1)
@@ -264,7 +264,7 @@ export default {
   methods: {
     Method1() { 
     }
-    Method2() { 
+    Method2(a) { 
     }
     Method3() { 
     }
@@ -273,7 +273,7 @@ export default {
   },
   created() {
     this.Method3();
-    this.Method2();
+    this.Method2("test");
     this.Method1();
     this.Method4();
     //...
