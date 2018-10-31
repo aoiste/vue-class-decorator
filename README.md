@@ -37,6 +37,8 @@ There are 7 decorators and 1 function (Mixin):
 * `@Component` (**from** `vue-class-component`)
 * `Mixins` (the helper function named `mixins` defined at `vue-class-component`)
 
+**Note: all the lifecycle hooks are supported**
+
 ### `FunctionalVue` class
 
 ```ts

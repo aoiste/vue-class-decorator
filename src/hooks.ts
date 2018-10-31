@@ -33,5 +33,15 @@ function HookFactory(stage: string): HookDecorator {
     };
 }
 
-export const Mounted: HookDecorator = HookFactory("mounted");
+
+export const BeforeCreate: HookDecorator = HookFactory("beforeCreate");
 export const Created: HookDecorator = HookFactory("created");
+export const BeforeMount: HookDecorator = HookFactory("beforeMount");
+export const Mounted: HookDecorator = HookFactory("mounted");
+export const BeforeUpdate: HookDecorator = HookFactory("beforeUpdate");
+export const Updated: HookDecorator = HookFactory("updated");
+export const Activated: HookDecorator = HookFactory("activated");
+export const Deactivated: HookDecorator = HookFactory("deactivated");
+export const BeforeDestroy: HookDecorator = HookFactory("beforeDestroy");
+export const Destroyed: HookDecorator = HookFactory("destroyed");
+export const ErrorCaptured: HookDecorator = HookFactory("errorCaptured");
