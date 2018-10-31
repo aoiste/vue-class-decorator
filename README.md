@@ -25,7 +25,6 @@ There are 7 decorators and 1 function (Mixin):
 * `@On`
 * `@Once`
 * `@Mounted`
-* `@Created`
 * `@Cache`
 * `@NoCache`
 * `@Emit` (**from** `vue-property-decorator`)
@@ -185,7 +184,10 @@ export default {
 }
 ```
 
-### `@Mounted(order?: number, ...args: any)` decorator
+### `@Mounted(order?: number, args?: any[])` decorator
+### `@Mounted(args?: any[])` decorator
+
+**The other lifecycle hooks are same**
 
 ```ts
 import { Vue, Component, Mounted } from 'vue-class-decorator'
@@ -196,7 +198,7 @@ export default class YourComponent extends Vue {
   Method1() { 
   }
 
-  @Mounted(2, "test")
+  @Mounted(2, ["test"])
   Method2(a: string) {
   }
 
@@ -204,8 +206,8 @@ export default class YourComponent extends Vue {
   Method3() { 
   }
 
-  @Mounted()
-  Method4() { 
+  @Mounted(["test"])
+  Method4(a: string) { 
   }
 }
 ```
@@ -221,63 +223,14 @@ export default {
     }
     Method3() { 
     }
-    Method4() { 
+    Method4(a) { 
     }
   },
   mounted() {
     this.Method3();
     this.Method2("test");
     this.Method1();
-    this.Method4();
-    //...
-  }
-}
-```
-
-### `@Created(order?: number, ...args: any)` decorator
-
-```ts
-import { Vue, Component, Created } from 'vue-class-decorator'
-
-@Component
-export default class YourComponent extends Vue {
-  @Created()
-  Method1() { 
-  }
-
-  @Created(2, "test")
-  Method2(a: string) { 
-  }
-
-  @Created(1)
-  Method3() { 
-  }
-
-  @Created()
-  Method4() { 
-  }
-}
-```
-
-is equivalent to
-
-```js
-export default {
-  methods: {
-    Method1() { 
-    }
-    Method2(a) { 
-    }
-    Method3() { 
-    }
-    Method4() { 
-    }
-  },
-  created() {
-    this.Method3();
-    this.Method2("test");
-    this.Method1();
-    this.Method4();
+    this.Method4("test");
     //...
   }
 }

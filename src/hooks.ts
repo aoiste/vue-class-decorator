@@ -1,10 +1,14 @@
 import { createDecorator, VueDecorator } from "vue-class-component";
 
 type KeyPair = [string, number, any[]];
-type HookDecorator = (order?: number, ...args: any) => VueDecorator;
+type HookDecorator = (order?: number | any[], args?: any[]) => VueDecorator;
 
 function HookFactory(stage: string): HookDecorator {
-    return function _stage(order?: number, ...args: any): VueDecorator {
+    return function _stage(order?: number | any[], args: any[] = []): VueDecorator {
+        if (Array.isArray(order)) {
+            args = order;
+            order = undefined;
+        }
         return createDecorator((componentOptions: any, key) => {
             let _stage: any = componentOptions[stage];
             if(typeof _stage !== "function" || !_stage.todos) {
