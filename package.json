@@ -1,9 +1,9 @@
 {
   "name": "vue-class-decorator",
-  "version": "7.5.1",
+  "version": "7.6.0",
   "description": "property decorators for Vue Component",
   "main": "lib/main.js",
-  "module": "lib/main.js",
+  "module": "dist/vue-ts.js",
   "keywords": [
     "vue",
     "typescript",
@@ -12,8 +12,9 @@
   "author": "ztytotoro",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "dist": "rollup -c"
+    "build:lib": "tsc",
+    "dist": "rollup -c",
+    "build": "tsc & rollup -c"
   },
   "files": [
     "lib"
@@ -22,14 +23,14 @@
     "rollup": "^1.0.1",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^4.0.0",
-    "rollup-plugin-typescript2": "^0.18.1",
+    "rollup-plugin-typescript2": "^0.19.2",
     "tslib": "^1.9.3",
-    "tslint": "5.12.0",
+    "tslint": "5.12.1",
     "typescript": "^3.2.2"
   },
   "typings": "./dist/main.d.ts",
   "dependencies": {
-    "vue": "2.5.21",
+    "vue": "2.6.0",
     "vue-class-component": "6.3.2"
   },
   "repository": {

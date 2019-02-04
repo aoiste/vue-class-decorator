@@ -1,0 +1,14 @@
+import { VueDecorator } from "vue-class-component";
+declare type HookDecorator = (order?: number | any[], args?: any[]) => VueDecorator;
+export declare const BeforeCreate: HookDecorator;
+export declare const Created: HookDecorator;
+export declare const BeforeMount: HookDecorator;
+export declare const Mounted: HookDecorator;
+export declare const BeforeUpdate: HookDecorator;
+export declare const Updated: HookDecorator;
+export declare const Activated: HookDecorator;
+export declare const Deactivated: HookDecorator;
+export declare const BeforeDestroy: HookDecorator;
+export declare const Destroyed: HookDecorator;
+export declare const ErrorCaptured: HookDecorator;
+export {};
