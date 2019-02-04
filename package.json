@@ -1,6 +1,6 @@
 {
   "name": "vue-class-decorator",
-  "version": "7.6.0",
+  "version": "7.6.1",
   "description": "property decorators for Vue Component",
   "main": "lib/main.js",
   "module": "dist/vue-ts.js",
@@ -17,7 +17,8 @@
     "build": "tsc & rollup -c"
   },
   "files": [
-    "lib"
+    "lib",
+    "dist"
   ],
   "devDependencies": {
     "rollup": "^1.0.1",
